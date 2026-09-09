@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Navbar from "@/components/Navbar";
 
 function getBannerPath(w: number, h: number) {
   if (w <= 0 || h <= 0) return "";
@@ -124,10 +123,7 @@ export default function Banner() {
             }}
           />
 
-          {/* Top-Right Cutout: Menu Button aligned top & right with curve border */}
-          <div className="absolute top-0 right-0 z-30 pointer-events-auto">
-            <Navbar />
-          </div>
+          {/* Top-Right Cutout shelf for globally fixed Menu Button */}
 
           <div className="absolute bottom-2.5 sm:bottom-3.5 md:bottom-4 left-5 sm:left-8 md:left-10 flex gap-1.5 sm:gap-2 pointer-events-none z-20">
             {[...Array(6)].map((_, i) => (
@@ -161,7 +157,7 @@ export default function Banner() {
 
           {/* Bottom Row: Bio & Call-to-action */}
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-6 border-t border-white/10">
-            <p className="max-w-[550px] text-sm sm:text-base text-gray-300/90 leading-relaxed font-sans">
+            <p className="max-w-[550px] text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
               {/* Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB. */}
 
               {/*               

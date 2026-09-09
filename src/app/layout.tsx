@@ -1,12 +1,26 @@
 import type { Metadata } from "next";
-import { Manrope, Geist_Mono, Syne } from "next/font/google";
+import { Manrope, Geist_Mono, Syne, Newsreader, Inter } from "next/font/google";
 import "./globals.css";
 import PageLoader from "@/components/PageLoader";
 import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Navbar";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -160,7 +174,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${syne.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} ${newsreader.variable} ${syne.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -184,7 +198,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <PageLoader />
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

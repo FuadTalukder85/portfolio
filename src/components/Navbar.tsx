@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import { useSmoothScroll } from "@/components/SmoothScroll";
@@ -17,10 +18,10 @@ interface MenuItem {
 
 const MENU_DATA: MenuItem[] = [
   { title: "Home", href: "/" },
-  { title: "Works", href: "#projects" },
-  { title: "Experience", href: "#experience" },
-  { title: "About", href: "#about" },
-  { title: "Contact", href: "#contact" },
+  { title: "Works", href: "/#projects" },
+  { title: "Experience", href: "/#experience" },
+  { title: "About", href: "/#about" },
+  { title: "Contact", href: "/contact" },
 ];
 
 function StarCrossIcon({ className }: { className?: string }) {
@@ -46,6 +47,7 @@ function SquareArrowOutUpRightIcon({ className }: { className?: string }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname = usePathname();
   const { lenis, scrollTo } = useSmoothScroll();
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
@@ -348,45 +350,47 @@ export default function Navbar() {
 
   return (
     <nav aria-label="Main Navigation" className="font-sans">
-      {/* Hamburger Trigger Button */}
-      <button
-        ref={hamburgerRef}
-        onClick={() => openMenu(!isOpen)}
-        className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1 px-5 py-2 rounded-full cursor-pointer relative z-[60] shadow-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        aria-label={isOpen ? "Close menu" : "Open menu"}
-        aria-expanded={isOpen}
-      >
-        <div
-          ref={hamburgerSlotRef}
-          className="absolute inset-0 rounded-full pointer-events-none"
-        />
-
-        <div
-          ref={hamburgerContentRef}
-          className="flex items-center justify-center gap-1 relative z-10 will-change-transform"
+      {/* Fixed Hamburger Trigger Button Container */}
+      <div className="fixed top-4 right-4 sm:top-6 sm:right-6 md:top-[max(2.5rem,4vh)] md:right-[max(2.5rem,calc((100vw-1800px)/2))] z-[60] pointer-events-auto">
+        <button
+          ref={hamburgerRef}
+          onClick={() => openMenu(!isOpen)}
+          className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1 px-5 py-2 rounded-full cursor-pointer relative shadow-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
         >
-          <span className="uppercase font-bold text-sm select-none">Menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          <div
+            ref={hamburgerSlotRef}
+            className="absolute inset-0 rounded-full pointer-events-none"
+          />
+
+          <div
+            ref={hamburgerContentRef}
+            className="flex items-center justify-center gap-1 relative z-10 will-change-transform"
           >
-            <line x1="5" x2="19" y1="9" y2="9" />
-            <line x1="5" x2="19" y1="15" y2="15" />
-          </svg>
-        </div>
-      </button>
+            <span className="uppercase font-bold text-sm select-none">Menu</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" x2="19" y1="9" y2="9" />
+              <line x1="5" x2="19" y1="15" y2="15" />
+            </svg>
+          </div>
+        </button>
+      </div>
 
       {/* Full-screen menu wrapper */}
       <div
         ref={menuWrapRef}
-        className="fixed inset-0 z-50 items-start justify-end p-3 sm:p-5 lg:p-7"
+        className="fixed inset-0 z-[65] items-start justify-end p-3 sm:p-5 lg:p-7 pointer-events-auto"
         style={{ display: "none" }}
       >
         {/* Dark backdrop */}
@@ -456,17 +460,30 @@ export default function Navbar() {
                       href={item.href}
                       onClick={(e) => {
                         openMenu(false);
-                        if (item.href.startsWith("#")) {
-                          e.preventDefault();
-                          const target =
-                            document.querySelector(item.href) ||
-                            (item.href === "#contact" ? document.querySelector("#experience") : null);
-                          if (target) {
-                            scrollTo(target as HTMLElement, { offset: 0, duration: 1.4 });
+                        const isHomePage = pathname === "/";
+                        if (item.href === "/contact") {
+                          if (pathname === "/contact") {
+                            e.preventDefault();
+                            scrollTo(0, { offset: 0, duration: 1.2 });
                           }
-                        } else if (item.href === "/") {
-                          e.preventDefault();
-                          scrollTo(0, { offset: 0, duration: 1.4 });
+                          return;
+                        }
+                        if (item.href === "/") {
+                          if (isHomePage) {
+                            e.preventDefault();
+                            scrollTo(0, { offset: 0, duration: 1.2 });
+                          }
+                          return;
+                        }
+                        if (item.href.startsWith("/#") || item.href.startsWith("#")) {
+                          const targetId = item.href.replace(/^\/?#/, "");
+                          if (isHomePage) {
+                            e.preventDefault();
+                            const target = document.getElementById(targetId);
+                            if (target) {
+                              scrollTo(target, { offset: 0, duration: 1.4 });
+                            }
+                          }
                         }
                       }}
                       className="flex items-center justify-between w-full py-1.5 sm:py-2 group focus:outline-none"

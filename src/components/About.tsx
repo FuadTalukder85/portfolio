@@ -107,7 +107,7 @@ export default function About() {
 
               {/* Main Heading with Haha-Emoji */}
               <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
-                <span className='text-xl text-[#d6f345] font-normal'>Fuad Talukder,</span> A Full-Stack Developer building, scalable, high-performance <span className="text-[#4b515a]">web </span>applications
+                <span className='text-xl text-[#838383] font-normal'>Fuad Talukder,</span> A Full-Stack Developer building, scalable, high-performance <span className="text-[#4b515a]">web </span>applications
               </h2>
               {/* Main Heading with Haha-Emoji */}
               {/* <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
@@ -126,7 +126,7 @@ export default function About() {
                 {['React.js', 'Next.js', 'TypeScript', 'Node.js', 'Mongoose', 'MongoDB', 'PostgreSQL', 'Prisma', 'Stripe'].map((item) => (
                   <span
                     key={item}
-                    className="text-xs font-mono px-3 py-1 bg-[#191a1f] text-gray-300 rounded-full border border-gray-800"
+                    className="text-xs font-mono px-3 py-1 bg-[#191a1f] text-gray-300 rounded-[12px] border border-[#838383]"
                   >
                     ✓ {item}
                   </span>
