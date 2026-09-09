@@ -140,7 +140,7 @@ export default function Experience() {
                     Work Experience
                 </h2>
                 <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                    Almost <span className="text-white font-semibold">1.7 years</span> of hands-on software engineering experience specializing in full-stack web platforms, process automation, and high-performance frontend interfaces.
+                    Almost <span className="text-white font-semibold">1.5 years</span> of hands-on software engineering experience specializing in full-stack web platforms, process automation, and high-performance frontend interfaces.
                 </p>
             </div>
 

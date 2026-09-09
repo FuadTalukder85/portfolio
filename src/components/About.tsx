@@ -99,9 +99,9 @@ export default function About() {
             <div id="about-left-content" className="lg:col-span-7 z-20 max-w-[720px]">
               {/* Badge */}
               <div className="inline-flex items-center gap-3 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
                 <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
-                  {"{04} Who I'm"}
+                  {"Who I'm"}
                 </span>
               </div>
 

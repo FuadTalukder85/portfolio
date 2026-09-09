@@ -224,9 +224,9 @@ export default function Project() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-3 mb-4">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
               <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
-                {'{02} Featured Works'}
+                {'Featured Works'}
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight">
