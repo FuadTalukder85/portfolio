@@ -162,9 +162,12 @@ export default function Banner() {
           {/* Bottom Row: Bio & Call-to-action */}
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-6 border-t border-white/10">
             <p className="max-w-[550px] text-sm sm:text-base text-gray-300/90 leading-relaxed font-sans">
-              Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB.
-              {/* Fuad Talukder — I build web apps &amp; AI tools that make
-              problems disappear. Solo, end to end, Dhaka to worldwide. */}
+              {/* Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB. */}
+
+              {/*               
+              Specializing in Node.js, TypeScript, Express, NestJS, and PostgreSQL. Engineering robust RESTful architectures, database schemas, and background job pipelines with production reliability. */}
+
+              Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
             </p>
 
             <a

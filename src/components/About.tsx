@@ -93,10 +93,10 @@ export default function About() {
           backgroundSize: 'contain',
         }}
       >
-        <div className="max-w-[1290px] mx-auto px-5 sm:px-8">
+        <div className="max-w-[1390px] mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Title, Emoji, Description, Stats */}
-            <div id="about-left-content" className="lg:col-span-7 z-20 max-w-[720px]">
+            <div id="about-left-content" className="lg:col-span-7 z-20 max-w-[820px]">
               {/* Badge */}
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
@@ -107,35 +107,20 @@ export default function About() {
 
               {/* Main Heading with Haha-Emoji */}
               <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
-                &ldquo;Turning complex <br /> ideas into simple, powerful <span className="text-[#4b515a]">digital </span>experiences.&rdquo;
+                <span className='text-xl text-[#d6f345] font-normal'>Fuad Talukder,</span> A Full-Stack Developer building, scalable, high-performance <span className="text-[#4b515a]">web </span>applications
               </h2>
+              {/* Main Heading with Haha-Emoji */}
+              {/* <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
+                A Full-Stack Developer building<br />scalable, high-performance<br /><span className="text-[#4b515a]">web </span>applications
+              </h2> */}
 
               {/* Description */}
               <p className="text-[#838383] text-base sm:text-lg leading-relaxed mb-10">
-                <span className='text-bold'>Fuad Talukder</span> - a Full-Stack Developer passionate about building scalable, high-performance web applications and transforming ideas into reliable digital products.
+                while turning complex ideas into simple, impactful digital experiences, from modern web platforms to intelligent AI-powered products.
               </p>
-
-              {/* 3 Stats Cards with bottom-up lime hover fill */}
-              {/* <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                {statsData.map((stat, idx) => (
-                  <div
-                    key={stat.id}
-                    className="group relative overflow-hidden rounded-[20px] p-6 text-center transition-all duration-500 cursor-default border border-white/5 bg-gradient-to-b from-[#2d2d2d] to-[#060606]"
-                  >
-                    <span className="absolute inset-0 bg-[#d6f345] origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.55,0.085,0,0.99)] group-hover:scale-y-100 z-0" />
-
-                    <div className="relative z-10">
-                      <h4 className="text-3xl sm:text-4xl font-bold text-[#838383] group-hover:text-black transition-colors duration-500 leading-none mb-3">
-                        {counts[idx]}
-                        {stat.suffix}
-                      </h4>
-                      <p className="text-sm font-medium text-[#b5b5b5] group-hover:text-black transition-colors duration-500 leading-snug">
-                        {stat.label}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div> */}
+              {/* <p className="text-[#838383] text-base sm:text-lg leading-relaxed mb-10">
+                Passionate about turning complex ideas into simple, impactful digital experiences<br /> from modern web applications to intelligent AI-powered products.
+              </p> */}
 
               <div className="flex flex-wrap gap-2 pt-6 mt-6 border-t border-gray-800/80">
                 {['React.js', 'Next.js', 'TypeScript', 'Node.js', 'Mongoose', 'MongoDB', 'PostgreSQL', 'Prisma', 'Stripe'].map((item) => (
