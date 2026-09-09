@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+import PageLoader from "@/components/PageLoader";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,7 +36,24 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${syne.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <PageLoader />
+        {children}
+      </body>
     </html>
   );
 }

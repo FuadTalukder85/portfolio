@@ -20,3 +20,58 @@ body {
   font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   overflow-x: clip;
 }
+
+/* ----------------------------------------------------
+   LUSION-STYLE PRELOADER & MECHANICAL ODOMETER STYLES
+   ---------------------------------------------------- */
+.preloader-percent-digits {
+  font-family: var(--font-syne), var(--font-geist-mono), sans-serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.76em;
+  height: 0.76em;
+  letter-spacing: -0.04em;
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+}
+
+.preloader-percent-digit {
+  position: relative;
+  display: inline-block;
+  width: 0.65ch;
+  text-align: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.preloader-percent-digit-num {
+  height: 0.76em;
+  line-height: 0.76em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* While loading: hard lock viewport & disable smooth scroll so reload resets instantaneously without animation */
+html.is-loading {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  scroll-behavior: auto !important;
+}
+
+html.is-loading body {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+#preloader-root {
+  background-color: #06070b;
+  transition: background-color 0.2s ease;
+}
+
+#preloader-root.is-revealing {
+  background-color: transparent !important;
+}
