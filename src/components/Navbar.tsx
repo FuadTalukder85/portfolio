@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
+import { useSmoothScroll } from "@/components/SmoothScroll";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(Flip);
@@ -45,6 +46,7 @@ function SquareArrowOutUpRightIcon({ className }: { className?: string }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { lenis, scrollTo } = useSmoothScroll();
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const hamburgerSlotRef = useRef<HTMLDivElement>(null);
@@ -60,6 +62,15 @@ export default function Navbar() {
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const flipItemRef = useRef<HTMLDivElement | null>(null);
   const flipRef = useRef<((forwards: boolean) => void) | null>(null);
+
+  const updateCloseBtnPosition = () => {
+    if (!hamburgerRef.current || !closeBtnRef.current) return;
+    const rect = hamburgerRef.current.getBoundingClientRect();
+    closeBtnRef.current.style.top = `${rect.top}px`;
+    closeBtnRef.current.style.left = `${rect.left}px`;
+    closeBtnRef.current.style.width = `${rect.width}px`;
+    closeBtnRef.current.style.height = `${rect.height}px`;
+  };
 
   useEffect(() => {
     const hamburgerEl = hamburgerRef.current;
@@ -206,15 +217,6 @@ export default function Navbar() {
     };
   }, []);
 
-  const updateCloseBtnPosition = () => {
-    if (!hamburgerRef.current || !closeBtnRef.current) return;
-    const rect = hamburgerRef.current.getBoundingClientRect();
-    closeBtnRef.current.style.top = `${rect.top}px`;
-    closeBtnRef.current.style.left = `${rect.left}px`;
-    closeBtnRef.current.style.width = `${rect.width}px`;
-    closeBtnRef.current.style.height = `${rect.height}px`;
-  };
-
   const openMenu = (open: boolean) => {
     const tl = tlRef.current;
     if (!tl || tl.isActive()) return;
@@ -227,6 +229,7 @@ export default function Navbar() {
       updateCloseBtnPosition();
       tl.play();
       setIsOpen(true);
+      lenis?.stop();
       if (hamburgerRef.current) {
         hamburgerRef.current.style.pointerEvents = "none";
       }
@@ -254,6 +257,7 @@ export default function Navbar() {
       }
     } else {
       setIsOpen(false);
+      lenis?.start();
       flipRef.current?.(false);
       tl.reverse();
       if (hamburgerRef.current) {
@@ -438,6 +442,7 @@ export default function Navbar() {
           {/* Menu Inner Content */}
           <div
             ref={menuScrollRef}
+            data-lenis-prevent
             className="relative z-20 w-full h-full flex flex-col justify-between overflow-y-auto overflow-x-hidden p-6 sm:p-10 lg:p-12 text-white overscroll-contain rounded-[24px]"
             style={{ position: "relative", zIndex: 20, overscrollBehavior: "contain" }}
           >
@@ -449,7 +454,21 @@ export default function Navbar() {
                     style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}>
                     <Link
                       href={item.href}
-                      onClick={() => openMenu(false)}
+                      onClick={(e) => {
+                        openMenu(false);
+                        if (item.href.startsWith("#")) {
+                          e.preventDefault();
+                          const target =
+                            document.querySelector(item.href) ||
+                            (item.href === "#contact" ? document.querySelector("#experience") : null);
+                          if (target) {
+                            scrollTo(target as HTMLElement, { offset: 0, duration: 1.4 });
+                          }
+                        } else if (item.href === "/") {
+                          e.preventDefault();
+                          scrollTo(0, { offset: 0, duration: 1.4 });
+                        }
+                      }}
                       className="flex items-center justify-between w-full py-1.5 sm:py-2 group focus:outline-none"
                     >
                       <span className="inline-block text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] font-bold tracking-tight text-gray-500 group-hover:text-white transition-all duration-300 origin-left transform group-hover:scale-110">

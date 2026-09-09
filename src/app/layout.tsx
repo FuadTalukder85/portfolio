@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import PageLoader from "@/components/PageLoader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -52,7 +53,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <PageLoader />
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
