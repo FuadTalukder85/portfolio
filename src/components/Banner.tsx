@@ -133,19 +133,20 @@ export default function Banner() {
 
           {/* Bottom Row: Bio & Call-to-action */}
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-6 border-t border-white/10">
-            <p className="max-w-md text-sm sm:text-base text-gray-300/90 leading-relaxed font-sans">
-              Fuad Talukder — I build web apps &amp; AI tools that make
-              problems disappear. Solo, end to end, Dhaka to worldwide.
+            <p className="max-w-[550px] text-sm sm:text-base text-gray-300/90 leading-relaxed font-sans">
+              Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB.
+              {/* Fuad Talukder — I build web apps &amp; AI tools that make
+              problems disappear. Solo, end to end, Dhaka to worldwide. */}
             </p>
 
             <a
               href="#projects"
               className="group inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white uppercase hover:text-emerald-400 transition-colors"
             >
-              <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
+              {/* <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
                 See the work
-              </span>
-              <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400 group-hover:bg-emerald-400/10 transition-all">
+              </span> */}
+              <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-[#d4ff00] group-hover:border-emerald-400 group-hover:bg-emerald-400/10 transition-all">
                 ↓
               </span>
             </a>
