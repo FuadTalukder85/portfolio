@@ -5,7 +5,7 @@ import Project from "@/components/Project";
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-[#06070b]">
+    <main className="w-full min-h-screen bg-[#0a0a0c]">
       <Banner />
       <About />
       <Project />

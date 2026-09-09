@@ -59,10 +59,38 @@ export default function Banner() {
     <section>
       <div
         id="home"
-        className="relative min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-hidden"
+        className="relative min-h-screen bg-[#0a0a0c] bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-hidden"
       >
-        {/* Subtle dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px] pointer-events-none" />
+        {/* Dark shade overlay matching About section tone */}
+        <div className="absolute inset-0 bg-[#0a0a0c]/80 backdrop-blur-[1px] pointer-events-none" />
+
+        {/* Ambient background matching About section */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          {/* Subtle grid pattern matching About section */}
+          <div
+            className="absolute inset-0 opacity-25 bg-right-top bg-no-repeat pointer-events-none"
+            style={{
+              backgroundImage: "url('/p1-bg-shape-1.webp')",
+              backgroundSize: 'contain',
+            }}
+          />
+
+          {/* Left ambient shape glow matching About section */}
+          <div
+            className="absolute top-10 left-0 w-[240px] h-[460px] opacity-30 bg-no-repeat bg-left-top pointer-events-none"
+            style={{ backgroundImage: "url('/a1-bg-shape-bg-2.webp')", backgroundSize: 'contain' }}
+          />
+
+          {/* Subtle ambient firefly glow circles matching About section */}
+          <div className="absolute top-1/4 left-4 w-72 h-72 rounded-full bg-[#d6f345]/8 blur-[100px]" />
+          <div className="absolute top-1/2 right-4 w-72 h-72 rounded-full bg-[#d6f345]/8 blur-[100px]" />
+
+          {/* Floating lime particle dots */}
+          <div className="absolute top-24 left-[8%] w-2 h-2 rounded-full bg-[#d6f345] opacity-75 animate-pulse shadow-[0_0_8px_#d6f345]" />
+          <div className="absolute top-44 left-[12%] w-1.5 h-1.5 rounded-full bg-[#d6f345] opacity-50 shadow-[0_0_6px_#d6f345]" />
+          <div className="absolute top-36 right-[10%] w-2 h-2 rounded-full bg-[#d6f345] opacity-80 animate-pulse shadow-[0_0_8px_#d6f345]" />
+          <div className="absolute top-64 right-[6%] w-1.5 h-1.5 rounded-full bg-[#d6f345] opacity-60 shadow-[0_0_6px_#d6f345]" />
+        </div>
 
         {/* Inner Frame Box with Custom Curved Corners */}
         <div
