@@ -171,13 +171,13 @@ export default function Banner() {
             </p>
 
             <a
-              href="#projects"
+              href="#about"
               className="group inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white uppercase hover:text-emerald-400 transition-colors"
             >
               {/* <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
                 See the work
               </span> */}
-              <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-[#d4ff00] group-hover:border-emerald-400 group-hover:bg-emerald-400/10 transition-all">
+              <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-[#d4ff00] group-hover:border-gray-400 group-hover:bg-emerald-400/10 transition-all">
                 ↓
               </span>
             </a>
