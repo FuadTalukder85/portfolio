@@ -28,7 +28,6 @@ const BUDGET_OPTIONS = [
 const ELSEWHERE_LINKS = [
   { name: "GITHUB", href: "https://github.com/fuadtalukder" },
   { name: "LINKEDIN", href: "https://www.linkedin.com/in/fuadtalukder" },
-  { name: "TWITTER", href: "https://twitter.com/fuadtalukder" },
   { name: "INSTAGRAM", href: "https://www.instagram.com/fuadtalukder" },
   { name: "FACEBOOK", href: "https://www.facebook.com/fuadtalukder" },
   { name: "READ.CV", href: "https://read.cv/fuadtalukder" },
@@ -148,27 +147,6 @@ export default function ContactView() {
 
   return (
     <div className="bg-ink-900 text-warmwhite font-sans antialiased selection:bg-peach selection:text-ink-900 min-h-screen">
-      {/* Top Header Navigation (exact structure to reference) */}
-      {/* <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
-        <nav
-          aria-label="Primary"
-          className="pointer-events-auto mx-auto flex w-full max-w-[1640px] items-center justify-between px-6 py-5 transition-[background,backdrop-filter,box-shadow] duration-500 md:px-10"
-        >
-          <Link
-            aria-label="Fuad Talukder — home"
-            className="group inline-flex items-baseline gap-2 font-serif text-xl tracking-tight text-warmwhite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-peach"
-            href="/"
-          >
-            <span className="relative whitespace-nowrap">
-              <span className="italic">F</span>uad{" "}
-              <span className="italic text-warmwhite/85">Talukder</span>
-            </span>
-          </Link>
-
-
-        </nav>
-      </header> */}
-
       {/* Hero Section (identical to reference) */}
       <section className="relative isolate overflow-hidden border-b border-warmwhite/15">
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
@@ -178,7 +156,7 @@ export default function ContactView() {
 
         <div className="mx-auto flex max-w-[1640px] flex-col px-6 pb-16 pt-36 md:px-10 md:pb-24 md:pt-48">
           <p className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-            § Contact &amp; Colophon
+            § Contact
           </p>
 
           <h1 className="mt-8 break-words font-serif text-[clamp(2.6rem,9vw,8.5rem)] leading-[0.92] tracking-tightest">
@@ -189,10 +167,10 @@ export default function ContactView() {
 
           <div className="mt-12 grid grid-cols-1 gap-8 border-t border-warmwhite/15 pt-8 md:grid-cols-12">
             <p className="md:col-span-6 max-w-2xl text-balance font-sans text-base leading-relaxed text-warmwhite/70 md:text-lg">
-              The fastest way is the form below — or write directly. I read everything and reply within 48 hours, weekdays.
+              The fastest way is the form below — or write directly. I read everything and reply within 1 hours, weekdays.
             </p>
 
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:col-span-6 md:grid-cols-4">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:col-span-6 md:grid-cols-3">
               <li className="min-w-0">
                 <p className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
                   Email
@@ -203,18 +181,10 @@ export default function ContactView() {
               </li>
               <li className="min-w-0">
                 <p className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                  Booking
+                  Whatsapp
                 </p>
                 <p className="mt-2 break-words font-serif text-base leading-snug tracking-tight text-warmwhite md:text-lg">
-                  Q1 — Q4 / 2026
-                </p>
-              </li>
-              <li className="min-w-0">
-                <p className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                  Time zone
-                </p>
-                <p className="mt-2 break-words font-serif text-base leading-snug tracking-tight text-warmwhite md:text-lg">
-                  GMT+6
+                  +88 01756-867585
                 </p>
               </li>
               <li className="min-w-0">
@@ -250,10 +220,10 @@ export default function ContactView() {
             </a>
 
             <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-warmwhite/65">
-              Briefs, retainers, collaborations — or just a hello. I read every line and reply within 48 hours, weekdays.
+              Briefs, retainers, collaborations — or just a hello. I read every line and reply within 1 hours, weekdays.
             </p>
 
-            <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-warmwhite/12 pt-10">
+            {/* <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-warmwhite/12 pt-10">
               <div>
                 <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
                   Location
@@ -302,7 +272,7 @@ export default function ContactView() {
                   ≤ 48 hours, weekdays
                 </dd>
               </div>
-            </dl>
+            </dl> */}
           </div>
 
           {/* Right Column: 02 — The Brief */}
@@ -344,7 +314,7 @@ export default function ContactView() {
                       </span>
                       <input
                         type="text"
-                        placeholder="Fuad Talukder"
+                        placeholder="Full Name"
                         required
                         aria-required="true"
                         value={name}
@@ -370,7 +340,7 @@ export default function ContactView() {
                       />
                     </label>
 
-                    <label className="block">
+                    {/* <label className="block">
                       <span className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
                         Company / Studio
                       </span>
@@ -396,9 +366,9 @@ export default function ContactView() {
                         className="mt-2 w-full border-b border-warmwhite/15 bg-transparent py-2.5 font-serif text-lg leading-snug text-warmwhite placeholder:text-warmwhite/55 transition-colors focus:border-warmwhite focus:outline-none focus-visible:border-peach"
                         name="url"
                       />
-                    </label>
+                    </label> */}
                   </div>
-
+                  {/* 
                   <fieldset>
                     <legend className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
                       ◊ What do you need
@@ -423,9 +393,9 @@ export default function ContactView() {
                         );
                       })}
                     </ul>
-                  </fieldset>
+                  </fieldset> */}
 
-                  <fieldset>
+                  {/* <fieldset>
                     <legend className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
                       ◊ Budget range
                     </legend>
@@ -453,7 +423,7 @@ export default function ContactView() {
                         );
                       })}
                     </div>
-                  </fieldset>
+                  </fieldset> */}
 
                   <div>
                     <label
@@ -478,14 +448,14 @@ export default function ContactView() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col items-start gap-4 border-t border-warmwhite/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="max-w-xs font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
+                  <div className="flex justify-end gap-4 pt-6 sm:flex-row sm:items-center">
+                    {/* <p className="max-w-xs font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
                       By sending you agree to our minimal{" "}
                       <a href="#" className="text-warmwhite underline-offset-4 hover:underline">
                         privacy policy
                       </a>
                       .
-                    </p>
+                    </p> */}
                     <div className="inline-block">
                       <button
                         type="submit"
@@ -511,7 +481,7 @@ export default function ContactView() {
               ◊ §03 — Elsewhere
             </p>
             <p className="mt-3 max-w-xs font-serif text-xl leading-snug tracking-tight text-warmwhite">
-              Quieter rooms — process notes, reels, and code.
+              Quieter rooms
             </p>
           </div>
 
