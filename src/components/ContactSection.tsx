@@ -85,22 +85,12 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Badge & Title */}
         <div className="max-w-3xl mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 text-xs font-mono text-gray-300 mb-4 bg-[#141518] px-4 py-2 rounded-full border border-gray-800 shadow-sm"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d4ff00] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4ff00]"></span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
+            <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
+              {'Get In Touch'}
             </span>
-            <span>&#123;04&#125; Get In Touch</span>
-            <span className="text-gray-600">•</span>
-            <span className="text-gray-400 font-sans">Available for new projects</span>
-          </motion.div>
-
+          </div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -175,11 +165,8 @@ export default function ContactSection() {
               <div className="flex items-center justify-between mb-4">
                 <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-gray-400">
                   <Phone className="w-4 h-4 text-gray-400" />
-                  <span>WhatsApp Instant Chat</span>
+                  <span>WhatsApp Me</span>
                 </div>
-                <span className="text-[11px] font-mono bg-green-500/10 text-gray-400 px-2.5 py-0.5 rounded-full border border-green-500/20">
-                  Instant
-                </span>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -303,7 +290,7 @@ export default function ContactSection() {
                         placeholder="Full Name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="mt-2 w-full border-b border-white/15 bg-transparent py-2.5 font-serif text-lg leading-snug text-white placeholder:text-white/35 transition-colors focus:border-white focus:outline-none"
+                        className="mt-2 w-full border-b border-white/15 bg-[#000000]/30 py-2.5 font-serif text-lg leading-snug text-white placeholder:text-white/35 transition-colors focus:border-white focus:outline-none"
                       />
                     </label>
 
@@ -318,7 +305,7 @@ export default function ContactSection() {
                         placeholder="hello@studio.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="mt-2 w-full border-b border-white/15 bg-transparent py-2.5 font-serif text-lg leading-snug text-white placeholder:text-white/35 transition-colors focus:border-white focus:outline-none"
+                        className="mt-2 w-full border-b border-white/15 bg-[#000000]/30 py-2.5 font-serif text-lg leading-snug text-white placeholder:text-white/35 transition-colors focus:border-white focus:outline-none"
                       />
                     </label>
                   </div>
@@ -335,7 +322,7 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell me what you’re building, the audience, the vibe, the rough timeline…"
-                      className="w-full resize-none rounded-lg border border-white/15 bg-transparent px-4 py-3.5 font-sans text-base leading-relaxed text-white placeholder:text-white/40 transition-colors focus:border-white focus:outline-none"
+                      className="w-full resize-none border-b border-white/15 bg-[#000000]/30 px-4 py-3.5 font-sans text-base leading-relaxed text-white placeholder:text-white/40 transition-colors focus:border-white focus:outline-none"
                     />
                     <p className="mt-2 text-right font-sans text-[10px] uppercase tracking-widest text-white/45">
                       {formData.message.length} / 3000
@@ -349,7 +336,7 @@ export default function ContactSection() {
                       disabled={isSubmitting}
                       className="rounded-full bg-white hover:bg-gray-200 px-7 py-3.5 font-sans text-[11px] uppercase tracking-widest text-black font-semibold transition-colors disabled:opacity-60 cursor-pointer"
                     >
-                      {isSubmitting ? "SENDING…" : "SEND INQUIRY"}
+                      {isSubmitting ? "SENDING…" : "SEND MESSAGE"}
                     </button>
                   </div>
                 </form>

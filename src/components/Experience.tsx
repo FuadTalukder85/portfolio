@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Calendar, MapPin, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from "framer-motion";
+import HeroCanvas from "./HeroCanvas";
 
 interface ExperienceItem {
     id: string;
@@ -136,7 +137,7 @@ export default function Experience() {
                     <span className="w-2 h-2 rounded-full bg-[#d4ff00] animate-pulse"></span>
                     <span>&#123;03&#125; Career Timeline</span>
                 </div> */}
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-[#1e1e1e]">
                     Work Experience
                 </h2>
                 <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -146,6 +147,9 @@ export default function Experience() {
 
             {/* Timeline Grid Container */}
             <div ref={containerRef} className="max-w-6xl xl:max-w-7xl mx-auto relative z-10 px-2 sm:px-4">
+                <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+                    <HeroCanvas />
+                </div>
                 {/* Vertical Timeline Track Line (Mobile: left-5, Desktop: left-1/2) */}
                 <div className="absolute left-5 md:left-1/2 -translate-x-1/2 top-5 bottom-8 w-[2px] md:w-[3px] pointer-events-none z-10">
                     {/* Unfilled default track line */}
@@ -368,9 +372,6 @@ function BookPageCard({
                 {/* Top Tag / Status & Duration */}
                 <div className="flex flex-wrap justify-between items-center gap-2.5 mb-5 relative z-10">
                     <div className="flex items-center gap-2">
-                        <span className="text-[#d4ff00] font-mono text-sm md:text-base font-bold">
-                            {item.stepNumber}.
-                        </span>
                         {item.isActive && (
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#d4ff00]/10 text-[#d4ff00] border border-[#d4ff00]/30 font-mono">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#d4ff00] animate-ping" />
@@ -411,21 +412,10 @@ function BookPageCard({
                     </p>
                     {item.responsibilities.map((resp, i) => (
                         <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-300 leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 text-[#d4ff00] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                             <span>{resp}</span>
                         </div>
                     ))}
-                </div>
-
-                {/* Book Page Footer Marker */}
-                <div className="flex justify-between items-center pt-4 border-t border-gray-800/60 text-[11px] font-mono text-gray-500 relative z-10">
-                    <span className="flex items-center gap-1.5 text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#d4ff00]/60" />
-                        {item.company}
-                    </span>
-                    <span className="text-gray-400 font-medium tracking-widest uppercase">
-                        PAGE {item.stepNumber}
-                    </span>
                 </div>
             </motion.div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import HeroCanvas from "./HeroCanvas";
 
 function getBannerPath(w: number, h: number) {
   if (w <= 0 || h <= 0) return "";
@@ -60,7 +61,6 @@ export default function Banner() {
         id="home"
         className="relative min-h-screen bg-[#0a0a0c] bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-hidden"
       >
-        {/* Dark shade overlay matching About section tone */}
         <div className="absolute inset-0 bg-[#0a0a0c]/80 backdrop-blur-[1px] pointer-events-none" />
 
         {/* Ambient background matching About section */}
@@ -73,7 +73,6 @@ export default function Banner() {
               backgroundSize: 'contain',
             }}
           />
-
           {/* Left ambient shape glow matching About section */}
           <div
             className="absolute top-10 left-0 w-[240px] h-[460px] opacity-30 bg-no-repeat bg-left-top pointer-events-none"
@@ -136,7 +135,13 @@ export default function Banner() {
 
           {/* Hero Title */}
           <div className="relative z-10 mx-auto my-auto py-6 font-syne uppercase leading-[0.88] select-none">
+            <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+              <HeroCanvas />
+            </div>
             {/* Line 1: Solid Bold FULL-STACK */}
+            <h1 className="text-center text-[clamp(1.5rem,3.9vw,3.8rem)] font-extrabold tracking-tight text-[#838383] whitespace-nowrap mb-1 md:mb-4">
+              FUAD TALUKDER
+            </h1>
             <h1 className="text-[clamp(2.5rem,6.9vw,7.8rem)] font-extrabold tracking-tight text-white whitespace-nowrap mb-1 md:mb-2">
               FULL-STACK
             </h1>

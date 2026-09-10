@@ -107,7 +107,7 @@ export default function About() {
 
               {/* Main Heading with Haha-Emoji */}
               <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
-                <span className='text-xl text-[#838383] font-normal'>Fuad Talukder,</span> A Full-Stack Developer building, scalable, high-performance <span className="text-[#4b515a]">web </span>applications
+                A Full-Stack Developer building, scalable, <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-[#1e1e1e]">high-performance web applications</span>
               </h2>
               {/* Main Heading with Haha-Emoji */}
               {/* <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.14] text-white mb-6 tracking-tight">
@@ -146,9 +146,9 @@ export default function About() {
         {/* Divider Line with Plus Center */}
         <div className="relative mt-20 sm:mt-24 w-full">
           <div className="w-[90%] mx-auto h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          <div className="absolute left-1/2 -top-3.5 -translate-x-1/2 w-7 h-7 rounded-full bg-[#0a0a0c] border border-white/10 flex items-center justify-center text-[#d6f345] text-lg font-bold">
+          {/* <div className="absolute left-1/2 -top-3.5 -translate-x-1/2 w-7 h-7 rounded-full bg-[#0a0a0c] border border-white/10 flex items-center justify-center text-[#d6f345] text-lg font-bold">
             +
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

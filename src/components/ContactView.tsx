@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import HeroCanvas from "./HeroCanvas";
 
 interface ServiceItem {
   name: string;
@@ -33,91 +34,6 @@ const ELSEWHERE_LINKS = [
   { name: "READ.CV", href: "https://read.cv/fuadtalukder" },
 ];
 
-function HeroCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
-
-    const onResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    };
-    window.addEventListener("resize", onResize);
-
-    // Particle nodes
-    const count = Math.min(Math.floor((width * height) / 18000), 70);
-    const particles = Array.from({ length: count }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      radius: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * 0.5 + 0.2,
-    }));
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(227, 191, 180, ${p.alpha * 0.6})`;
-        ctx.fill();
-
-        // Connect nearby particles
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 110) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(239, 236, 233, ${(1 - dist / 110) * 0.08})`;
-            ctx.lineWidth = 0.75;
-            ctx.stroke();
-          }
-        }
-      }
-
-      animId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      className="absolute inset-0 h-full w-full pointer-events-none"
-    />
-  );
-}
 
 export default function ContactView() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -222,57 +138,6 @@ export default function ContactView() {
             <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-warmwhite/65">
               Briefs, retainers, collaborations — or just a hello. I read every line and reply within 1 hours, weekdays.
             </p>
-
-            {/* <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-warmwhite/12 pt-10">
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Location
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  Dhaka, Bangladesh
-                </dd>
-              </div>
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Studio
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  The Compiled Thought
-                </dd>
-              </div>
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Hours
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  Mon — Fri · 09:00 → 18:00
-                </dd>
-              </div>
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Time zone
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  GMT+6
-                </dd>
-              </div>
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Booking
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  Open · Q1 — Q4 / 2026
-                </dd>
-              </div>
-              <div>
-                <dt className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/55">
-                  Reply
-                </dt>
-                <dd className="mt-2 font-sans text-base leading-snug text-warmwhite">
-                  ≤ 48 hours, weekdays
-                </dd>
-              </div>
-            </dl> */}
           </div>
 
           {/* Right Column: 02 — The Brief */}
@@ -339,92 +204,7 @@ export default function ContactView() {
                         name="email"
                       />
                     </label>
-
-                    {/* <label className="block">
-                      <span className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                        Company / Studio
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="The Compiled Thought"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        className="mt-2 w-full border-b border-warmwhite/15 bg-transparent py-2.5 font-serif text-lg leading-snug text-warmwhite placeholder:text-warmwhite/55 transition-colors focus:border-warmwhite focus:outline-none focus-visible:border-peach"
-                        name="company"
-                      />
-                    </label>
-
-                    <label className="block">
-                      <span className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                        Project URL or brief
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="https://…"
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                        className="mt-2 w-full border-b border-warmwhite/15 bg-transparent py-2.5 font-serif text-lg leading-snug text-warmwhite placeholder:text-warmwhite/55 transition-colors focus:border-warmwhite focus:outline-none focus-visible:border-peach"
-                        name="url"
-                      />
-                    </label> */}
                   </div>
-                  {/* 
-                  <fieldset>
-                    <legend className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                      ◊ What do you need
-                    </legend>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {SERVICES.map((s) => {
-                        const isSelected = selectedServices.includes(s.name);
-                        return (
-                          <li key={s.name}>
-                            <button
-                              type="button"
-                              aria-pressed={isSelected}
-                              onClick={() => toggleService(s.name)}
-                              className={`rounded-full border px-3.5 py-1.5 font-sans text-[10px] uppercase tracking-widest transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-peach ${isSelected
-                                ? "border-peach bg-peach/15 text-peach"
-                                : "border-warmwhite/20 text-warmwhite/80 hover:border-warmwhite"
-                                }`}
-                            >
-                              {s.name}
-                            </button>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </fieldset> */}
-
-                  {/* <fieldset>
-                    <legend className="font-sans text-[10px] uppercase tracking-widest text-warmwhite/65">
-                      ◊ Budget range
-                    </legend>
-                    <div
-                      className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4"
-                      role="radiogroup"
-                      aria-label="Budget range"
-                    >
-                      {BUDGET_OPTIONS.map((opt) => {
-                        const isSelected = selectedBudget === opt;
-                        return (
-                          <button
-                            key={opt}
-                            type="button"
-                            role="radio"
-                            aria-checked={isSelected}
-                            onClick={() => setSelectedBudget(opt)}
-                            className={`w-full rounded-md border px-4 py-2.5 font-sans text-[10px] uppercase tracking-widest transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-peach ${isSelected
-                              ? "border-warmwhite bg-warmwhite/15 text-warmwhite"
-                              : "border-warmwhite/15 text-warmwhite/65 hover:border-warmwhite"
-                              }`}
-                          >
-                            {opt}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </fieldset> */}
-
                   <div>
                     <label
                       htmlFor="contact-message"

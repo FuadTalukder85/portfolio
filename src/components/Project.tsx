@@ -229,7 +229,7 @@ export default function Project() {
                 {'Featured Works'}
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-[#1e1e1e]">
               Engineering Digital Solutions
             </h2>
           </div>
@@ -308,7 +308,7 @@ export default function Project() {
         <div className="mt-16 sm:mt-20 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="relative w-full flex-1 flex items-center">
             <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-white/30" />
-            <span className="text-[#d6f345] font-bold text-xl ml-3">+</span>
+            {/* <span className="text-[#d6f345] font-bold text-xl ml-3">+</span> */}
           </div>
 
           <a
