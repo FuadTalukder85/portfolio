@@ -3,6 +3,7 @@ import Banner from "@/components/Banner";
 import About from "@/components/About";
 import Project from "@/components/Project";
 import Experience from "@/components/Experience";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <About />
       <Project />
       <Experience />
+      <ContactSection />
     </main>
   );
 }
