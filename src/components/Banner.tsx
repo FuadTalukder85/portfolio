@@ -32,6 +32,26 @@ function getBannerPath(w: number, h: number) {
   ].join(" ");
 }
 
+function SquareArrowOutUpRightIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`lucide lucide-move-up-right ${className || ""}`}
+    >
+      <path d="M13 5H19V11" />
+      <path d="M19 5L5 19" />
+    </svg>
+  );
+}
+
 export default function Banner() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState<{ w: number; h: number }>({ w: 1200, h: 650 });
@@ -158,30 +178,44 @@ export default function Banner() {
                 DEVELOPER
               </span>
             </div>
-          </div>
-
-          {/* Bottom Row: Bio & Call-to-action */}
-          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-6 border-t border-white/10">
-            <p className="max-w-[550px] text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
-              {/* Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB. */}
-
-              {/*               
-              Specializing in Node.js, TypeScript, Express, NestJS, and PostgreSQL. Engineering robust RESTful architectures, database schemas, and background job pipelines with production reliability. */}
-
+            <p className="max-w-[700px] text-center mx-auto text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
               Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
             </p>
 
-            <a
+          </div>
+
+          {/* Bottom Row: Bio & Call-to-action */}
+          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-end gap-6 pt-6 border-t border-white/10">
+            {/* <p className="max-w-[550px] text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
+              Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB.
+
+              Specializing in Node.js, TypeScript, Express, NestJS, and PostgreSQL. Engineering robust RESTful architectures, database schemas, and background job pipelines with production reliability.
+
+              Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
+            </p> */}
+            <div>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
+              >
+                <span className="uppercase font-bold text-sm select-none">Resume</span>
+                <SquareArrowOutUpRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+
+            {/* <a
               href="#about"
               className="group inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white uppercase hover:text-emerald-400 transition-colors"
             >
-              {/* <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
+              <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
                 See the work
-              </span> */}
+              </span>
               <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-[#d4ff00] group-hover:border-gray-400 group-hover:bg-emerald-400/10 transition-all">
                 ↓
               </span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

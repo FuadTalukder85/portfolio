@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Eye } from 'lucide-react';
+import { Eye, SquareArrowOutUpRightIcon } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -313,11 +313,25 @@ export default function Project() {
 
           <a
             href="#projects"
-            className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-transparent border border-white/20 text-white text-sm font-semibold tracking-wider uppercase hover:border-[#d6f345] hover:text-[#d6f345] transition-all duration-300 shrink-0"
+            className="group inline-flex items-center gap-3 px-8 py-2.5 rounded-full bg-transparent border border-white/20 text-gray-500 text-sm font-semibold tracking-wider uppercase hover:border-[#838383] hover:text-white transition-all duration-300 shrink-0 mb-4"
           >
-            <span>Explore All Projects</span>
+            <span>Explore More</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`lucide lucide-move-up-right`}
+              >
+                <path d="M13 5H19V11" />
+                <path d="M19 5L5 19" />
+              </svg>
             </span>
           </a>
         </div>

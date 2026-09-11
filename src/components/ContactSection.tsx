@@ -334,9 +334,9 @@ export default function ContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="rounded-full bg-white hover:bg-gray-200 px-7 py-3.5 font-sans text-[11px] uppercase tracking-widest text-black font-semibold transition-colors disabled:opacity-60 cursor-pointer"
+                      className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
                     >
-                      {isSubmitting ? "SENDING…" : "SEND MESSAGE"}
+                      {isSubmitting ? "Sending…" : "Send Message"}
                     </button>
                   </div>
                 </form>
@@ -353,7 +353,7 @@ export default function ContactSection() {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-2 bg-[#141518] hover:bg-[#1c1d22] text-gray-400 hover:text-[#d4ff00] px-4 py-2 rounded-full border border-gray-800 transition-colors cursor-pointer"
+            className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

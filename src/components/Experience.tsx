@@ -340,8 +340,8 @@ function BookPageCard({
                     transformStyle: "preserve-3d",
                 }}
                 className={`bg-[#121316] border rounded-2xl p-6 sm:p-7 md:p-8 lg:p-9 relative transition-colors duration-300 group transform-gpu select-none ${isSectionActive
-                    ? "border-gray-700/90 hover:border-[#d4ff00]/40"
-                    : "border-gray-800/90 hover:border-[#d4ff00]/40"
+                    ? "border-gray-700/90"
+                    : "border-gray-800/90"
                     }`}
             >
                 {/* Dynamic Page Lighting Sheen / Ambient Turn Shadow */}
@@ -386,9 +386,8 @@ function BookPageCard({
                 </div>
 
                 {/* Role & Company */}
-                <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-white mb-2 group-hover:text-[#d4ff00] transition-colors flex items-center justify-between relative z-10">
+                <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-white mb-2 transition-colors flex items-center justify-between relative z-10">
                     <span>{item.role}</span>
-                    <ArrowUpRight className="w-5 h-5 lg:w-6 lg:h-6 text-gray-500 opacity-0 group-hover:opacity-100 group-hover:text-[#d4ff00] transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </h3>
 
                 <div className="flex items-center gap-3 text-sm md:text-base text-gray-400 font-medium mb-5 relative z-10">

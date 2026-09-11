@@ -98,7 +98,7 @@ export default function Navbar() {
     flipItemEl.className = "hamburger__base";
     flipItemEl.style.position = "absolute";
     flipItemEl.style.inset = "0";
-    flipItemEl.style.borderRadius = "15px";
+    flipItemEl.style.borderRadius = "24px";
     flipItemEl.style.backgroundColor = "#090A0C";
     flipItemEl.style.border = "1px solid rgba(255, 255, 255, 0.2)";
     flipItemEl.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.5)";
@@ -440,14 +440,14 @@ export default function Navbar() {
           {/* Morph slot */}
           <div
             ref={menuSlotRef}
-            className="absolute inset-0 rounded-[24px] pointer-events-none z-0"
+            className="absolute inset-0 rounded-full pointer-events-none z-0"
           />
 
           {/* Menu Inner Content */}
           <div
             ref={menuScrollRef}
             data-lenis-prevent
-            className="relative z-20 w-full h-full flex flex-col justify-between overflow-y-auto overflow-x-hidden p-6 sm:p-10 lg:p-12 text-white overscroll-contain rounded-[24px]"
+            className="relative z-20 w-full h-full flex flex-col justify-between overflow-y-auto overflow-x-hidden p-6 sm:p-10 lg:p-12 text-white overscroll-contain rounded-full"
             style={{ position: "relative", zIndex: 20, overscrollBehavior: "contain" }}
           >
             {/* Navigation links (direct title with link and star cross icon) */}
