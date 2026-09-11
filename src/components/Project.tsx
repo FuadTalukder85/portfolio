@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Eye, SquareArrowOutUpRightIcon } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +12,7 @@ interface PortfolioItem {
   img: string;
   title: string;
   categories: string[];
-  link: string;
+  slug: string;
   elmClass: string;
 }
 
@@ -21,7 +22,7 @@ const portfolioData: PortfolioItem[] = [
     img: '/img-01.png',
     title: 'AlTalk Platform',
     categories: ['Web design', 'Portfolio'],
-    link: '#',
+    slug: 'altalk-platform',
     elmClass: 'p1_ani_trigger_elm_1',
   },
   {
@@ -29,7 +30,7 @@ const portfolioData: PortfolioItem[] = [
     img: '/img-02.png',
     title: 'FinChat Terminal',
     categories: ['Web design', 'Portfolio'],
-    link: '#',
+    slug: 'finchat-terminal',
     elmClass: 'p1_ani_trigger_elm_2',
   },
   {
@@ -37,7 +38,7 @@ const portfolioData: PortfolioItem[] = [
     img: '/img-03.png',
     title: 'NexChain Financial',
     categories: ['Web design', 'Portfolio'],
-    link: '#',
+    slug: 'nexchain-financial',
     elmClass: 'p1_ani_trigger_elm_3',
   },
   {
@@ -45,7 +46,7 @@ const portfolioData: PortfolioItem[] = [
     img: '/img-04.png',
     title: 'ONOMA Comfort',
     categories: ['Web design', 'Portfolio'],
-    link: '#',
+    slug: 'onoma-comfort',
     elmClass: 'p1_ani_trigger_elm_4',
   },
 ];
@@ -225,7 +226,7 @@ export default function Project() {
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-3 mb-4">
               <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
-              <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
+              <span className="text-[#d6f345] text-base sm:text-lg font-medium tracking-wide">
                 {'Featured Works'}
               </span>
             </div>
@@ -287,7 +288,8 @@ export default function Project() {
                   </div>
 
                   {/* Centered Magnetic Action Button (Eye Icon) with Blink */}
-                  <div
+                  <Link
+                    href={`/projects/${item.slug}`}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto"
                     style={{
                       transform: `translate(calc(-50% + ${mouse.x}px), calc(-50% + ${mouse.y}px))`,
@@ -297,7 +299,7 @@ export default function Project() {
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white text-black flex items-center justify-center scale-0 group-hover:scale-100 transition-all duration-500 ease-[cubic-bezier(0.55,0.085,0,0.99)] hover:bg-[#d6f345] shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                       <Eye className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             );
@@ -313,7 +315,7 @@ export default function Project() {
 
           <a
             href="#projects"
-            className="group inline-flex items-center gap-3 px-8 py-2.5 rounded-full bg-transparent border border-white/20 text-gray-500 text-sm font-semibold tracking-wider uppercase hover:border-[#838383] hover:text-white transition-all duration-300 shrink-0 mb-4"
+            className="group inline-flex items-center gap-3 px-8 py-2.5 rounded-full bg-transparent border border-white/20 text-[#d6f345] text-sm font-semibold tracking-wider uppercase hover:border-[#838383] hover:text-white transition-all duration-300 shrink-0 mb-4"
           >
             <span>Explore More</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">

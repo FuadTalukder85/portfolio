@@ -186,6 +186,9 @@ export default function Navbar() {
           duration: 0.35,
           stagger: { amount: 0.2 },
           ease: "power3.out",
+          onReverseComplete: () => {
+            flip(false);
+          },
         },
         "fade-in-up"
       )
@@ -260,7 +263,6 @@ export default function Navbar() {
     } else {
       setIsOpen(false);
       lenis?.start();
-      flipRef.current?.(false);
       tl.reverse();
       if (hamburgerRef.current) {
         hamburgerRef.current.style.pointerEvents = "auto";
@@ -355,7 +357,7 @@ export default function Navbar() {
         <button
           ref={hamburgerRef}
           onClick={() => openMenu(!isOpen)}
-          className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1 px-5 py-2 rounded-full cursor-pointer relative shadow-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          className="text-[#d6f345] hover:text-gray-300 flex items-center justify-center gap-1 px-5 py-2 rounded-full cursor-pointer relative shadow-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
@@ -447,7 +449,7 @@ export default function Navbar() {
           <div
             ref={menuScrollRef}
             data-lenis-prevent
-            className="relative z-20 w-full h-full flex flex-col justify-between overflow-y-auto overflow-x-hidden p-6 sm:p-10 lg:p-12 text-white overscroll-contain rounded-full"
+            className="relative z-20 w-full h-full flex flex-col justify-between overflow-y-auto overflow-x-hidden p-6 sm:p-10 lg:p-12 text-white overscroll-contain"
             style={{ position: "relative", zIndex: 20, overscrollBehavior: "contain" }}
           >
             {/* Navigation links (direct title with link and star cross icon) */}

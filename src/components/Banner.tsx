@@ -159,7 +159,7 @@ export default function Banner() {
               <HeroCanvas />
             </div>
             {/* Line 1: Solid Bold FULL-STACK */}
-            <h1 className="text-center text-[clamp(1.5rem,3.9vw,3.8rem)] font-extrabold tracking-tight text-[#838383] whitespace-nowrap mb-1 md:mb-4">
+            <h1 className="text-center text-[clamp(1.5rem,3.9vw,3.8rem)] font-extrabold tracking-tight text-[#d6f345] whitespace-nowrap mb-1 md:mb-4">
               FUAD TALUKDER
             </h1>
             <h1 className="text-[clamp(2.5rem,6.9vw,7.8rem)] font-extrabold tracking-tight text-white whitespace-nowrap mb-1 md:mb-2">
@@ -198,7 +198,7 @@ export default function Banner() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
+                className="text-[#d6f345] hover:text-white flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
               >
                 <span className="uppercase font-bold text-sm select-none">Resume</span>
                 <SquareArrowOutUpRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

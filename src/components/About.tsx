@@ -100,7 +100,7 @@ export default function About() {
               {/* Badge */}
               <div className="inline-flex items-center gap-3 mb-6">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
-                <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
+                <span className="text-[#d6f345] text-base sm:text-lg font-medium tracking-wide">
                   {"Who I'm"}
                 </span>
               </div>

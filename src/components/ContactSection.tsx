@@ -87,7 +87,7 @@ export default function ContactSection() {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
             <span className="w-2.5 h-2.5 rounded-full bg-[#d6f345] shadow-[0_0_10px_#d6f345] animate-pulse" />
-            <span className="text-[#838383] text-base sm:text-lg font-medium tracking-wide">
+            <span className="text-[#d6f345] text-base sm:text-lg font-medium tracking-wide">
               {'Get In Touch'}
             </span>
           </div>
@@ -334,7 +334,7 @@ export default function ContactSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
+                      className="text-[#d6f345] hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
                     >
                       {isSubmitting ? "Sending…" : "Send Message"}
                     </button>
@@ -346,14 +346,14 @@ export default function ContactSection() {
         </div>
 
         {/* Footer Navigation Bar */}
-        <div className="mt-24 pt-8 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500">
+        <div className="mt-24 pt-8 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#d6f345]">
           <div>
             <span>&copy; {new Date().getFullYear()} Fuad Talukder. All rights reserved.</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="text-gray-500 hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
+            className="text-[#d6f345] hover:text-gray-300 flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />
