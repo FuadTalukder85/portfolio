@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import HeroCanvas from "./HeroCanvas";
+import HeroCanvas from "@/components/HeroCanvas";
 
 interface ServiceItem {
   name: string;

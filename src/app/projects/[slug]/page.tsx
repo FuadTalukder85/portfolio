@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getProjectBySlug, getAllProjectSlugs } from '@/lib/projects-data';
-import ProjectDetails from '@/components/ProjectDetails';
+import ProjectDetails from '@/app/projects/components/ProjectDetails';
 
 interface PageProps {
   params: Promise<{ slug: string }>;

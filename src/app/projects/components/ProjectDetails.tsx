@@ -78,12 +78,12 @@ export default function ProjectDetails({ project }: { project: ProjectData }) {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-[#0a0a0c] text-white font-sans">
-      {/* ────────── STICKY TOP BAR ────────── */}
-      <div className="sticky top-0 z-50 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-[1520px] mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+      {/* ────────── TOP BAR (ALIGNED WITH CASE STUDY CONTENT) ────────── */}
+      <div className="fixed top-4 sm:top-6 md:top-[max(2.5rem,4vh)] left-0 right-0 z-50 pointer-events-none">
+        <div className="max-w-[1520px] mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors font-mono tracking-widest uppercase group"
+            className="pointer-events-auto inline-flex items-center gap-2 h-10 text-sm text-white/40 hover:text-white transition-colors font-mono tracking-widest uppercase group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
             Projects
@@ -93,7 +93,7 @@ export default function ProjectDetails({ project }: { project: ProjectData }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.2em] uppercase text-[#d6f345] hover:text-[#e8ff6b] transition-colors"
+              className="pointer-events-auto inline-flex items-center gap-1.5 h-10 font-mono text-xs tracking-[0.2em] uppercase text-[#d6f345] hover:text-[#e8ff6b] transition-colors mr-20 sm:mr-24 md:mr-28"
             >
               Visit live
               <ArrowUpRight className="w-4 h-4" />
@@ -103,7 +103,7 @@ export default function ProjectDetails({ project }: { project: ProjectData }) {
       </div>
 
       {/* ────────── HERO SECTION ────────── */}
-      <section className="max-w-[1520px] mx-auto px-6 md:px-12 lg:px-20 pt-16 md:pt-24">
+      <section className="max-w-[1520px] mx-auto px-6 md:px-12 lg:px-20 pt-20 md:pt-28">
         {/* Label */}
         <p className="pd-hero-label font-mono text-xs tracking-[0.32em] uppercase text-white/40">
           <span className="text-[#d6f345]">›</span> Case study — {project.categories[1] || project.categories[0]}

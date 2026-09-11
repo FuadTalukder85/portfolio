@@ -9,10 +9,10 @@ function getBannerPath(w: number, h: number) {
   const isMobile = w < 640;
   const isTablet = w < 1024;
 
-  const r = isMobile ? 24 : 38;
-  const notchH = isMobile ? 44 : isTablet ? 54 : 64;
-  const shelfW = isMobile ? 70 : isTablet ? 100 : 130;
-  const transW = isMobile ? 50 : isTablet ? 70 : 85;
+  const r = isMobile ? 18 : 38;
+  const notchH = isMobile ? 38 : isTablet ? 54 : 64;
+  const shelfW = isMobile ? 60 : isTablet ? 100 : 130;
+  const transW = isMobile ? 40 : isTablet ? 70 : 85;
   const notchW = shelfW + transW;
 
   return [
@@ -79,7 +79,7 @@ export default function Banner() {
     <section>
       <div
         id="home"
-        className="relative min-h-screen bg-[#0a0a0c] bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-hidden"
+        className="relative min-h-screen bg-[#0a0a0c] bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center p-3 sm:p-6 md:p-10 overflow-hidden"
       >
         <div className="absolute inset-0 bg-[#0a0a0c]/80 backdrop-blur-[1px] pointer-events-none" />
 
@@ -95,7 +95,7 @@ export default function Banner() {
           />
           {/* Left ambient shape glow matching About section */}
           <div
-            className="absolute top-10 left-0 w-[240px] h-[460px] opacity-30 bg-no-repeat bg-left-top pointer-events-none"
+            className="absolute top-0 left-0 w-[240px] h-[460px] opacity-30 bg-no-repeat bg-left-top pointer-events-none"
             style={{ backgroundImage: "url('/a1-bg-shape-bg-2.webp')", backgroundSize: 'contain' }}
           />
 
@@ -113,7 +113,7 @@ export default function Banner() {
         {/* Inner Frame Box with Custom Curved Corners */}
         <div
           ref={containerRef}
-          className="relative z-10 w-full max-w-[1800px] min-h-[80vh] md:h-[92vh] px-6 sm:px-10 md:px-14 lg:px-20 pt-8 sm:pt-12 md:pt-14 pb-16 sm:pb-20 md:pb-24 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          className="relative z-10 w-full max-w-[1800px] min-h-[85vh] md:h-[92vh] px-4 sm:px-10 md:px-14 lg:px-20 pt-12 sm:pt-14 md:pt-16 pb-14 sm:pb-20 md:pb-24 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* SVG Definitions, Background Fill & Crisp Vector Border */}
           <svg
@@ -144,30 +144,30 @@ export default function Banner() {
 
           {/* Top-Right Cutout shelf for globally fixed Menu Button */}
 
-          <div className="absolute bottom-2.5 sm:bottom-3.5 md:bottom-4 left-5 sm:left-8 md:left-10 flex gap-1.5 sm:gap-2 pointer-events-none z-20">
+          <div className="absolute bottom-2 sm:bottom-3.5 md:bottom-4 left-3.5 sm:left-8 md:left-10 flex gap-1 sm:gap-2 pointer-events-none z-20">
             {[...Array(6)].map((_, i) => (
               <span
                 key={i}
-                className="w-1 sm:w-1.5 h-6 sm:h-7 md:h-8 bg-white/70 rounded-full -skew-x-[28deg]"
+                className="w-1 sm:w-1.5 h-5 sm:h-7 md:h-8 bg-white/70 rounded-full -skew-x-[28deg]"
               />
             ))}
           </div>
 
           {/* Hero Title */}
-          <div className="relative z-10 mx-auto my-auto py-6 font-syne uppercase leading-[0.88] select-none">
+          <div className="relative z-10 mx-auto my-auto py-4 sm:py-6 font-syne uppercase leading-[0.9] sm:leading-[0.88] select-none text-center w-full flex flex-col items-center justify-center">
             <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
               <HeroCanvas />
             </div>
             {/* Line 1: Solid Bold FULL-STACK */}
-            <h1 className="text-center text-[clamp(1.5rem,3.9vw,3.8rem)] font-extrabold tracking-tight text-[#d6f345] whitespace-nowrap mb-1 md:mb-4">
+            <h1 className="text-center text-[clamp(1.1rem,4vw,3.5rem)] font-extrabold tracking-tight text-[#d6f345] mb-1 md:mb-4 w-full">
               FUAD TALUKDER
             </h1>
-            <h1 className="text-[clamp(2.5rem,6.9vw,7.8rem)] font-extrabold tracking-tight text-white whitespace-nowrap mb-1 md:mb-2">
+            <h1 className="text-center text-[clamp(1.4rem,7.2vw,7.8rem)] font-extrabold tracking-tight text-white mb-1 md:mb-2 w-full">
               FULL-STACK
             </h1>
 
             {/* Line 2: Stroked Outline DEVELOPER */}
-            <div className="flex items-baseline gap-1.5 md:gap-2 text-[clamp(2.5rem,6.9vw,7.8rem)] font-extrabold tracking-tight whitespace-nowrap">
+            <div className="w-full flex items-center justify-center text-[clamp(1.4rem,7.2vw,7.8rem)] font-extrabold tracking-tight mb-3 md:mb-4">
               <span
                 className="inline-block transition-all duration-300 hover:text-white/90"
                 style={{
@@ -178,21 +178,14 @@ export default function Banner() {
                 DEVELOPER
               </span>
             </div>
-            <p className="max-w-[700px] text-center mx-auto text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
+            <p className="max-w-[700px] text-center mx-auto text-xs sm:text-sm md:text-base text-[#838383] leading-relaxed font-sans px-2">
               Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
             </p>
 
           </div>
 
           {/* Bottom Row: Bio & Call-to-action */}
-          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-end gap-6 pt-6 border-t border-white/10">
-            {/* <p className="max-w-[550px] text-sm sm:text-base text-[#838383] leading-relaxed font-sans">
-              Fuad Talukder — a Full-Stack Developer focused on building scalable, high-performance web applications with modern technologies like Next.js, Typescript, Node.js, Express.js, PostgreSQL and MongoDB.
-
-              Specializing in Node.js, TypeScript, Express, NestJS, and PostgreSQL. Engineering robust RESTful architectures, database schemas, and background job pipelines with production reliability.
-
-              Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
-            </p> */}
+          <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-end justify-center sm:justify-end gap-6 pt-4 sm:pt-6 border-t border-white/10 w-full">
             <div>
               <a
                 href="/resume.pdf"
@@ -200,22 +193,10 @@ export default function Banner() {
                 rel="noopener noreferrer"
                 className="text-[#d6f345] hover:text-white flex items-center justify-center gap-1.5 px-5 py-2 rounded-full cursor-pointer relative bg-[#090A0C] border border-white/20 hover:border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white group"
               >
-                <span className="uppercase font-bold text-sm select-none">Resume</span>
-                <SquareArrowOutUpRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="uppercase font-bold text-xs sm:text-sm select-none">Resume</span>
+                <SquareArrowOutUpRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
-
-            {/* <a
-              href="#about"
-              className="group inline-flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white uppercase hover:text-emerald-400 transition-colors"
-            >
-              <span className="border-b border-white/40 pb-1 group-hover:border-emerald-400 transition-colors">
-                See the work
-              </span>
-              <span className="w-10 h-10 rounded-full border border-white/25 flex items-center justify-center text-[#d4ff00] group-hover:border-gray-400 group-hover:bg-emerald-400/10 transition-all">
-                ↓
-              </span>
-            </a> */}
           </div>
         </div>
       </div>

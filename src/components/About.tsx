@@ -70,7 +70,7 @@ export default function About() {
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         {/* Left glow shape */}
         <div
-          className="absolute top-10 left-0 w-[240px] h-[460px] opacity-40 bg-no-repeat bg-left-top"
+          className="absolute top-0 left-0 w-[240px] h-[460px] opacity-40 bg-no-repeat bg-left-top"
           style={{ backgroundImage: "url('/a1-bg-shape-bg-2.webp')", backgroundSize: 'contain' }}
         />
 
@@ -79,7 +79,7 @@ export default function About() {
         <div className="absolute top-1/2 right-4 w-72 h-72 rounded-full bg-[#d6f345]/10 blur-[100px]" />
 
         {/* Floating lime particle dots */}
-        <div className="absolute top-24 left-[8%] w-2 h-2 rounded-full bg-[#d6f345] opacity-75 animate-pulse shadow-[0_0_8px_#d6f345]" />
+        <div className="hidden md:block absolute top-24 left-[8%] w-2 h-2 rounded-full bg-[#d6f345] opacity-75 animate-pulse shadow-[0_0_8px_#d6f345]" />
         <div className="absolute top-44 left-[12%] w-1.5 h-1.5 rounded-full bg-[#d6f345] opacity-50 shadow-[0_0_6px_#d6f345]" />
         <div className="absolute top-36 right-[10%] w-2 h-2 rounded-full bg-[#d6f345] opacity-80 animate-pulse shadow-[0_0_8px_#d6f345]" />
         <div className="absolute top-64 right-[6%] w-1.5 h-1.5 rounded-full bg-[#d6f345] opacity-60 shadow-[0_0_6px_#d6f345]" />
