@@ -178,8 +178,8 @@ export default function Banner() {
                 DEVELOPER
               </span>
             </div>
-            <p className="max-w-[700px] text-center mx-auto text-xs sm:text-sm md:text-base text-[#838383] leading-relaxed font-sans px-2">
-              Specializing in: Full-Stack Development, Workflow Automation, PostgreSQL & Prisma, Stripe Payments, Next.js App Router, Zod Validation
+            <p className="max-w-[800px] text-center mx-auto text-[clamp(0.8rem,1.8vw,1.05rem)] text-[#838383] leading-relaxed font-sans px-2">
+              1.5+ years of experience building scalable full-stack applications and business automation solutions with expertise in Next.js, PostgreSQL & Prisma, Stripe Payments, Zod Validation, and modern workflow automation.
             </p>
 
           </div>

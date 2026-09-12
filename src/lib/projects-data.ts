@@ -218,7 +218,7 @@ export const projectsData: ProjectData[] = [
     titleLine2: 'Platform.',
     heroImage: '/img-03.png',
     categories: ['Full-Stack', 'Real Estate'],
-    liveUrl: '#',
+    liveUrl: 'https://real-estate-update.vercel.app',
     githubUrl: '#',
     year: '2026',
     role: 'Full-Stack Developer',
