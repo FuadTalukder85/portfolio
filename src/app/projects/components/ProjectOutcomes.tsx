@@ -30,7 +30,13 @@ export default function ProjectOutcomes({ outcomes }: ProjectOutcomesProps) {
               }`}
             >
               <span
-                className={`font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-none ${
+                className={`font-syne font-extrabold ${
+                  outcome.value.length > 6
+                    ? 'text-xl sm:text-2xl lg:text-3xl'
+                    : outcome.value.length > 4
+                      ? 'text-2xl sm:text-3xl lg:text-4xl'
+                      : 'text-3xl sm:text-4xl lg:text-5xl'
+                } leading-none ${
                   i === 0 ? 'text-[#d6f345]' : 'text-white'
                 }`}
               >

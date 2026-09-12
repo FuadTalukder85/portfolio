@@ -17,11 +17,11 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
       </p>
 
       {/* Title */}
-      <h1 className="pd-hero-title mt-6 sm:mt-8 uppercase leading-[0.92]">
-        <span className="block font-syne font-thin italic text-white/70 text-[clamp(1.6rem,5vw,6rem)] tracking-tight">
+      <h1 className="pd-hero-title mt-6 sm:mt-8 uppercase leading-[0.95]">
+        <span className="block font-syne font-thin italic text-white/70 text-[clamp(1.5rem,4vw,4.75rem)] tracking-tight">
           {project.titleLine1}
         </span>
-        <span className="block font-syne font-extrabold text-white text-[clamp(1.8rem,7.5vw,8.75rem)] break-words">
+        <span className="block font-syne font-extrabold text-white text-[clamp(1.8rem,5.5vw,6.25rem)] break-normal leading-[0.95] tracking-tight">
           {project.titleLine2.replace('.', '')}
           <span className="text-[#d6f345]">.</span>
         </span>
